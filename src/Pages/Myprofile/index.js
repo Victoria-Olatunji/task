@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import profilesection from '../../Components/images/profile-section.png'
 import { getAllBanks, getResolveAccountNumber } from "../../API";
 
+
+
 function Myprofile() {
   const [loading, setLoading] = useState(false);
   const [dataSource, setDataSource] = useState([]);
@@ -14,48 +16,96 @@ function Myprofile() {
       setLoading(false);
     });
   }, []);
-
+  const Button = ({ type }) => {
+    return <button className={"widgetLgButton " + type}>{type}</button>;
+  };
   return (
-  <>
-      <div>
+    <>
+    <div>
       <img className='profile-section'src={profilesection} alt="profilesection" />
       </div>
-    <Space size={20} direction="vertical" className="ref">
-      <Typography.Title level={4}></Typography.Title>
-      <Table className="table"
-        loading={loading}
-        columns={[
-          {
-            title: "Transaction ID",
-            dataIndex: "Transaction ID",
-          },
-          {
-            title: "Transaction type",
-            dataIndex: "Transaction type",
-            render: (value) => <span>{value}</span>,
-          },
-          {
-            title: "Date",
-            dataIndex: "Date",
-            render: (value) => <span>{value}</span>,
-          },
-          {
-            title: "Amount",
-            dataIndex: "Amount",
-          },
-          {
-            title: "Payment",
-            dataIndex: "Paymentl",
-          },
-          {
-            title: "Status",
-            dataIndex: "Status",
-          },
-        ]}
-        
-      ></Table>
-    </Space>
+    <div className="transsection">
+      <h3 className="searchbar"></h3>
+      <table className="transtable">
+        <tr className="transTr">
+          <th>
+          <label>
+                <select>
+                    <option value="1">Transaction ID</option>
+                </select>
+            </label>
+          </th>
+          <th>
+          <label>
+                <select>
+                    <option value="1">Transaction type</option>
+                </select>
+            </label>
+          </th>
+          <th>
+          <label>
+                <select>
+                    <option value="1">Date</option>
+                </select>
+            </label>
+          </th>
+          <th>
+          <label>
+                <select>
+                    <option value="1">Amount</option>
+                </select>
+            </label>
+          </th>
+          <th>
+          <label>
+                <select>
+                    <option value="1">Payment</option>
+                </select>
+            </label>
+          </th>
+          <th>
+          <label>
+                <select>
+                    <option value="1">Status</option>
+                </select>
+            </label>
+          </th>
+        </tr>
+        <tr className="firsttransrow">
+          <td className="transdata">790841</td>
+          <td className="transtype">ReceiveToken</td>
+          <td className="date">12-June-2021</td>
+          <td className="amount">5 Tokens</td>
+          <td className="paymentt">Token Wallet</td>
+          <td className="status">
+            <Button type="Successful" />
+          </td>
+        </tr>
+        <tr className="sectransrow">
+          <td className="transdata">790841</td>
+          <td className="transtype">ReceiveToken</td>
+          <td className="date">12-June-2021</td>
+          <td className="amount">5 Tokens</td>
+          <td className="paymentt">Token Wallet</td>
+          <td className="status">
+            <Button type="Successful" />
+          </td>
+        </tr>
+        <tr className="thirdtransrow">
+          <td className="transdata">790841</td>
+          <td className="transtype">ReceiveToken</td>
+          <td className="date">12-June-2021</td>
+          <td className="amount">5 Tokens</td>
+          <td className="paymentt">Token Wallet</td>
+          <td className="status">
+            <Button type="Successful" />
+          </td>
+        </tr>
+      </table>
+    </div>
     </>
   );
 }
+
+
 export default Myprofile;

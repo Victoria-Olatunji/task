@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Myprofile from "../../Pages/Myprofile";
+import Applicationform from "../../Pages/Applicationform";
 import Tailorapplication from "../../Pages/Tailorapplication";
 
 

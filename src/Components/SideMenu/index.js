@@ -57,7 +57,7 @@ function SideMenu() {
                     items={[
                       {
                         label: "Apply to be a VETTED Tailor",
-                        key: "/tailorapplication",
+                        key: "/applicationform",
                         
                       },
                     ]}
