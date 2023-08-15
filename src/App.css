@@ -1,0 +1,147 @@
+.App{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    overflow-y: hidden;
+}
+.AppHeader{
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 20px 4px 12px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.SideMenuAndPageContent{
+    display: flex;
+    flex: 1;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+.SideMenu{
+    height: 100%;
+
+}
+.SideMenuVertical{
+    width: 435px;
+    height: 1582px;
+    border-radius: 2px;
+    color: #ffffff;
+    background: linear-gradient(192.77deg, rgba(0, 240, 255, 0.8) -22.81%, rgba(83, 118, 255, 0.8) 28.04%, rgba(0, 12, 182, 0.8) 114.1%);
+}
+.PageContent{
+    padding-left: 12px;
+}
+
+.profilepic{
+    border-radius: 50%;
+    border: 1px solid white;
+    background-color: blue;
+    width: 74.02816772460938px;
+    height: 74.11764526367188px;
+    top: 48px;
+    left: 172px;
+  }
+  
+  /* .profile-user{
+    font-family: Kotori Rose;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 29px;
+    letter-spacing: -0.30000001192092896px;
+    text-align: center;
+  
+  } */
+  
+  .profile{
+    margin-left: 8rem;
+    margin-top: -2rem;
+  }
+  
+  .tailor-profile {
+    font-family: Kotori Rose;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 29px;
+    letter-spacing: -0.30000001192092896px;
+    text-align: center;
+    margin-left: -5rem;
+    color: #ffffff;
+  
+  }
+  
+  .tailor-email {
+    font-family: Karla;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0em;
+    text-align: center;
+    margin-left: -5rem;
+    color: #ffffff;
+  }
+  
+  /* .iconii{
+    gap: 2rem;
+  } */
+  
+  .getmeasurement{
+    font-family: Karla;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 14px;
+    letter-spacing: 0em;
+    text-align: center;
+    margin-left: -4rem;
+    color: #ffffff;
+  
+  }
+  
+  .drop-down{
+    /* position: relative; */
+    margin: 1em 3.5em;
+  }
+  
+  .pro {
+    font-size: x-small;
+    margin-left: 35rem;
+  }
+.profile-section{
+    width: 100%;
+}
+
+.profile_title{
+    margin-left: 35rem;
+    font-family: Kotori Rose;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 2px;
+    letter-spacing: 0px;
+    text-align: left;
+
+}
+
+.vector{
+    margin-left: -7rem;
+}
+
+.profile-table{
+    width: 100%;
+}
+
+.ref{
+    margin-left: 3rem;
+    width: 90%;
+}
+.application{
+   border: 1px solid white;
+   border-radius: 8px;
+   size:10px;
+   width: 250px;
+   margin-left: 5rem;
+   font-weight: 700;
+   color: black;
+}
