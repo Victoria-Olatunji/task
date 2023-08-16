@@ -159,6 +159,10 @@
     border-bottom: 1px solid #ddd;
 
 }
+.transheading{
+  margin-left: 1.9rem;
+  border-bottom: 1px solid #ddd;
+}
 
 .transdata,.transtype,.date,.amount,.paymentt,.status{
    
@@ -167,17 +171,12 @@ font-size: 14px;
 font-weight: 400;
 line-height: 20px;
 letter-spacing: 0px;
-text-align: left;
-
 }
 
 .transtype,.date,.amount,.paymentt,.status{
-   
    margin-top: 100rem;
-    
-    }
-    
-
+  }
+  
 .sectransrow{
     margin-top: 40rem;
 }
@@ -188,6 +187,11 @@ text-align: left;
 
 tr{
   margin-top: 5rem;
+}
+
+td{
+  text-align: center;
+
 }
 
 .application-intro{
@@ -385,11 +389,13 @@ tr.thirdtransrow{
 .vettedi{
   margin-left: 16rem;
   margin-top: 2rem;
+  font-size: 12px;
 }
 
 .vettediii{
   margin-left: 26rem;
   margin-top: 2rem;
+  font-weight: 700;
 }
 
 @media (max-width: 768px) {
@@ -419,6 +425,7 @@ tr.thirdtransrow{
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
   }
 
   .form-selec {
@@ -433,8 +440,8 @@ tr.thirdtransrow{
 
 @media (max-width: 480px) {
   .cardii {
-    
     padding: 10px;
+    margin-left: -1.4rem;
   }
 
   .vetted {
@@ -457,6 +464,47 @@ tr.thirdtransrow{
     margin-top: 20px;
     margin-left: 7rem;
   }
+}
+
+/* Add this CSS to your existing stylesheet or a new one */
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .card{
+    margin-top: -6rem;
+    margin-left: -2rem;
+  }
+  .card-items {
+    flex-direction: column;
+    margin-left: -27.5rem;
+    
+  }
+
+  .application-introii{
+    display: none;
+  }
+
+  .application-section {
+    margin-top: 20px;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .form-selec{
+    display: none;
+  }
+
+  .application-item-grp{
+    margin-left: 1rem;
+    width: 55%;
+  }
+  
+
+ 
 }
 
 

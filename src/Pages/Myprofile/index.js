@@ -6,16 +6,16 @@ import { getAllBanks, getResolveAccountNumber } from "../../API";
 
 
 function Myprofile() {
-  const [loading, setLoading] = useState(false);
-  const [dataSource, setDataSource] = useState([]);
+  // const [loading, setLoading] = useState(false);
+  // const [dataSource, setDataSource] = useState([]);
 
-  useEffect(() => {
-    setLoading(true);
-    getAllBanks().then((res) => {
-      setDataSource(res.products);
-      setLoading(false);
-    });
-  }, []);
+  // useEffect(() => {
+  //   setLoading(true);
+  //   getAllBanks().then((res) => {
+  //     setDataSource(res.products);
+  //     setLoading(false);
+  //   });
+  // }, []);
   const Button = ({ type }) => {
     return <button className={"widgetLgButton " + type}>{type}</button>;
   };

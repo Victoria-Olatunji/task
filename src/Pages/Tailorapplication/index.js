@@ -1,43 +1,42 @@
 import { useEffect, useState } from "react";
 // import SideMenu from "./Components/SideMenu";
-import { Link } from 'react-router-dom';
 import photo from '../../Components/images/photo.png';
-import user from '../../Components/images/user.png'
+import { useNavigate } from "react-router-dom";
 
 function Tailorapplication() {
   const [bankList, setBankList] = useState([]);
-  const [selectedBank, setSelectedBank] = useState('')
+  const [selectedBank, setSelectedBank] = useState('');
   const [accountNumber, setAccountNumber] = useState('');
-  const [accountName, setAccountName] = useState('')
+  const [accountName, setAccountName] = useState('');
+  const navigate = useNavigate();
 
   const selectBank = (e) => {
      setSelectedBank(e.target.value);
-     console.log(e.target.value);
   };
 
-  const getAccountDetails = ()=>{
-    console.log('here');
+  const handleSubmit = (e)=>{
+    e.preventDefault();
+    const payload = JSON.stringify({
+        bankCode: selectedBank,
+        accountNo: accountNumber
+    });
+    
     fetch('https://fitted-portal-api.herokuapp.com/api/v1/bank/resolveAccount', {
         method: 'POST',
         headers: {
             'Content-type': 'application/json; charset=UTF-8',
          },
-        body: JSON.stringify({
-            bankCode: selectedBank,
-            accountNo: accountName
-        })
-        .then(response=>response.json())
-        .then(data=>setAccountName(data.content.data.account_name))
+        body: payload
     })
+    .then(response=>response.json())
+    .then(data=>setAccountName(data.content.data.account_name));
+    
   }
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-};
+
 
 const getAccountNumber = (e) =>{
     setAccountNumber(e.target.value);
-    console.log(e.target.value);
 }
 
 useEffect(() => {
@@ -50,12 +49,16 @@ const fetchBanks = ()=>{
     .then(data=>setBankList(data.data))
 }
 
+const onSuccess = (e) =>{
+    e.preventDefault()
+    navigate('/vetapplication')
+}
   return (
     <>
-        <div className="card">
+    <div className="card">
             <div className="card-items">
                 <div className="application-intro">
-                    VETTED TAILOR APPLICATION
+                    Vetted Tailor Application
                 </div>
                 <div className="application-introii">
                 One step closer to the goal! please provide us with your Bank details<br></br>with which you will be recieving payment.
@@ -68,15 +71,15 @@ const fetchBanks = ()=>{
             <div className="profile-data">
                 <div>Name: Samuel </div>
                 <div>Gender: Male</div>
-                <div>sew Gender:Both</div>
+                <div>Sew Gender:Both</div>
                 <div>Phone Number:08137901372</div>
                 <div>Email:biola@fitted.ng</div>
                 <div>Store Name:Skibi Fashion House</div>
-                <div> Location:Lagos, Nigeria</div>
+                <div>Location:Lagos, Nigeria</div>
             </div>
         </div>
 
-        <form onSubmit={handleSubmit}>
+        <form>
             <div className="form-selec">
                 <div className="application-item-grp">
                 <label className="application-item">
@@ -88,15 +91,15 @@ const fetchBanks = ()=>{
                 </div>
                 <div className="bar">
                 <select className="bar">
-                    <option value="1">Please select</option>  
+                    <option value="">Please select</option>  
                 </select>
                 <select className="bar">
-                    <option value="1">Please select</option>
+                    <option value="">Please select</option>
                 </select>
                 </div>
                 
-                </div>
-        <div className="application-item-grp">   
+            </div>
+            <div className="application-item-grp">   
             <div>
                 <div>
                     <label className="application-item" htmlFor="name">Bank Name</label>
@@ -115,7 +118,7 @@ const fetchBanks = ()=>{
                     <label className="application-item" htmlFor="email">Account Number:</label>
                 </div>
                 <div>
-                <input className="bars" type="value" id="value" name="value" placeholder="please input your account number" value={accountNumber} onChange={getAccountNumber}/>
+                <input className="bars" type="value" id="value" name="value" placeholder="please input your account number" value={accountNumber} onChange={getAccountNumber} onBlur={handleSubmit}/>
                 </div>
             </div>
 
@@ -124,18 +127,15 @@ const fetchBanks = ()=>{
                     <label className="application-item"htmlFor="accountname">Account Name</label>
                 </div>
                 <div>
-                <input className="bars" type="value" id="accountname" name="accountname" placeholder={accountName}  value={accountName}/>
+                <input className="bars" type="value" id="accountname" name="accountname" placeholder={accountName.toString()}  value={accountName}/>
                 </div>
             </div>
-        </div>
-        <Link to="/vetapplication">
-        <button className="btn" type="submit" onClick={getAccountDetails}>Submit Application</button>
-        </Link>
-            
+            </div>     
+            <button className="btn" type="button" onClick={onSuccess}>Submit Application</button>       
         </form>
         </div>
             </div>
-        </div>
+    </div>
     </>
   );
 }export default Tailorapplication;
