@@ -54,10 +54,15 @@ function SideMenu() {
                     <option value="Vetted Tailor">Vetted Tailor</option>
                     </select>
                 <Menu className="application"
+                mode="vertical"
+                onClick={(item) => {
+                  navigate(item.key);
+                }}
+                selectedKeys={[selectedKeys]}
                     items={[
                       {
                         label: "Apply to be a VETTED Tailor",
-                        key: "/applicationform",
+                        key: "/Tailorapplication",
                         
                       },
                     ]}

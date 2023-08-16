@@ -1,8 +1,9 @@
 import { useState } from "react";
 // import SideMenu from "./Components/SideMenu";
-import photo from '../../Components/images/photo.png'
+import photo from '../../Components/images/photo.png';
+import user from '../../Components/images/user.png'
 
-export default function Multiple() {
+function Tailorapplication() {
   const [formData, setFormData] = useState({name: "",email: "",message: ""});
 
   const handleChange = (event) => {
@@ -12,53 +13,87 @@ export default function Multiple() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    alert(`Name: ${formData.name}, Email: ${formData.email}, Message: ${formData.message}`
-    );
 };
 
   return (
     <>
-        <div>
-            <div>
+        <div className="card">
+            <div className="card-items">
+                <div className="application-intro">
+                    VETTED TAILOR APPLICATION
+                </div>
+                <div className="application-introii">
+                One step closer to the goal! please provide us with your Bank details<br></br>with which you will be recieving payment.
+                </div>
+        <div className="application-section">
+        <div className="form-profile">
+            <div className="form-profilpic">
                 <img className='photo'src={photo} alt="photo" />
             </div>
-            <div>
-                Name:
-                Gender:
-                sew Gender:
-                Phone Number:
-                Email Address:
-                Store Name:
-                Location:
+            <div className="profile-data">
+                <div>Name: Samuel </div>
+                <div>Gender: Male</div>
+                <div>sew Gender:Both</div>
+                <div>Phone Number:08137901372</div>
+                <div>Email:biola@fitted.ng</div>
+                <div>Store Name:Skibi Fashion House</div>
+                <div> Location:Lagos, Nigeria</div>
             </div>
         </div>
 
         <form onSubmit={handleSubmit}>
-            <label>
-                Gender You sew for?
-                <select>
-                    <option value="1">Male</option>
-                    <option value="2">Female</option>
+            <div className="form-selec">
+                <div className="application-item-grp">
+                <label className="application-item">
+                    Gender You sew for? 
+                </label>
+                <label className="application-item">
+                    Styles you sew?
+                </label>
+                </div>
+                <div className="bar">
+                <select className="bar">
+                    <option value="1">Please select</option>  
                 </select>
-            </label>
-            <label>
-                Styles you sew?
-                <select>
-                    <option value="1">Agdada</option>
-                    <option value="2">Gown</option>
+                <select className="bar">
+                    <option value="1">Please select</option>
                 </select>
-            </label>
-            <label htmlFor="name">Bank Name:</label>
-            <input type="text" id="name" name="name" value={formData.name} onChange={handleChange}/>
+                </div>
+                
+                </div>
+        <div className="application-item-grp">   
+            <div>
+                <div>
+                    <label className="application-item" htmlFor="name">Bank Name</label>
+                </div>
+                <div>
+                <input type="text" id="name" name="name" placeholder="please select your Bank" value={formData.name} onChange={handleChange} className="bars"/>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <label className="application-item" htmlFor="email">Account Number:</label>
+                </div>
+                <div>
+                <input className="bars" type="value" id="value" name="value" placeholder="please input your account number" value={formData.number} onChange={handleChange}/>
+                </div>
+            </div>
 
-            <label htmlFor="email">Account Number:</label>
-            <input type="email" id="email" name="email" value={formData.email} onChange={handleChange}/>
+            <div>
+                <div>
+                    <label className="application-item"htmlFor="accountname">Account Name</label>
+                </div>
+                <div>
+                <input className="bars" type="value" id="accountname" name="accountname" placeholder={user} value={formData.name} onChange={handleChange}/>
+                </div>
+            </div>
+        </div>
 
-            <label htmlFor="email">Account Name:</label>
-            <input type="email" id="email" name="email" value={formData.email} onChange={handleChange}/>
-
-            <button type="submit">Submit</button>
+            <button type="submit">Submit Application</button>
         </form>
+        </div>
+            </div>
+        </div>
     </>
   );
-}
+}export default Tailorapplication;

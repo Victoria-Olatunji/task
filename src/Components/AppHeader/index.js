@@ -7,19 +7,7 @@ import vector from '../images/Vector.png'
 import { getAllbanks, getResolveAccountNumber } from "../../API";
 
 function AppHeader() {
-  // const [comments, setComments] = useState([]);
-  // const [orders, setOrders] = useState([]);
-  // const [commentsOpen, setCommentsOpen] = useState(false);
-  // const [notificationsOpen, setNotificationsOpen] = useState(false);
 
-  // useEffect(() => {
-  //   getAllBanks().then((res) => {
-  //     setComments(res.comments);
-  //   });
-  //   getAllBanks().then((res) => {
-  //     setOrders(res.products);
-  //   });
-  // }, []);
 
   return (
     <div className="AppHeader">
