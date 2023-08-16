@@ -27,45 +27,45 @@ function Myprofile() {
     <div className="transsection">
       <h3 className="searchbar"></h3>
       <table className="transtable">
-        <tr className="transTr">
+        <tr className="transheading">
           <th>
           <label>
-                <select>
-                    <option value="1">Transaction ID</option>
+                <select className="transheading" >
+                    <option value="" >Transaction ID</option>
                 </select>
             </label>
           </th>
           <th>
           <label>
-                <select>
-                    <option value="1">Transaction type</option>
+                <select className="transheading">
+                    <option value="">Transaction type</option>
                 </select>
             </label>
           </th>
           <th>
           <label>
-                <select>
-                    <option value="1">Date</option>
+                <select className="transheading">
+                    <option value="">Date</option>
                 </select>
             </label>
           </th>
           <th>
           <label>
-                <select>
-                    <option value="1">Amount</option>
+                <select className="transheading">
+                    <option value="">Amount</option>
                 </select>
             </label>
           </th>
           <th>
           <label>
-                <select>
+                <select className="transheading">
                     <option value="1">Payment</option>
                 </select>
             </label>
           </th>
           <th>
           <label>
-                <select>
+                <select className="transheading">
                     <option value="1">Status</option>
                 </select>
             </label>
@@ -82,6 +82,26 @@ function Myprofile() {
           </td>
         </tr>
         <tr className="sectransrow">
+          <td className="transdata">790841</td>
+          <td className="transtype">ReceiveToken</td>
+          <td className="date">12-June-2021</td>
+          <td className="amount">5 Tokens</td>
+          <td className="paymentt">Token Wallet</td>
+          <td className="status">
+            <Button type="Successful" />
+          </td>
+        </tr>
+        <tr className="thirdtransrow">
+          <td className="transdata">790841</td>
+          <td className="transtype">ReceiveToken</td>
+          <td className="date">12-June-2021</td>
+          <td className="amount">5 Tokens</td>
+          <td className="paymentt">Token Wallet</td>
+          <td className="status">
+            <Button type="Successful" />
+          </td>
+        </tr>
+        <tr className="thirdtransrow">
           <td className="transdata">790841</td>
           <td className="transtype">ReceiveToken</td>
           <td className="date">12-June-2021</td>

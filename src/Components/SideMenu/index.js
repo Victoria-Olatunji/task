@@ -1,13 +1,9 @@
 import {
-  AppstoreOutlined,
-  ShopOutlined,
-  ShoppingCartOutlined,
   UserOutlined,
 } from "@ant-design/icons";
 import { Menu } from "antd";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { Link } from 'react-router-dom';
 import { LiaTapeSolid } from 'react-icons/lia';
 import { LiaTshirtSolid } from 'react-icons/lia';
 import { RiShoppingBag2Line } from 'react-icons/ri';
@@ -15,7 +11,6 @@ import { MdLogout} from 'react-icons/md';
 import logo from '../images/logo.png';
 import profile from '../images/profile-picture.png';
 import icon from '../images/icon.png';
-import application from '../images/application.png';
 import iconii from '../images/iconii.png';
 import { withRouter } from 'react-router-dom';
 
@@ -101,7 +96,7 @@ function SideMenu() {
           },
           {
             label: "My Profile",
-            key: "/myprofile",
+            key: "/",
             icon: <UserOutlined />,
           },
           {

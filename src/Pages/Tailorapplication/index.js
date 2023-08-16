@@ -1,19 +1,54 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 // import SideMenu from "./Components/SideMenu";
+import { Link } from 'react-router-dom';
 import photo from '../../Components/images/photo.png';
 import user from '../../Components/images/user.png'
 
 function Tailorapplication() {
-  const [formData, setFormData] = useState({name: "",email: "",message: ""});
+  const [bankList, setBankList] = useState([]);
+  const [selectedBank, setSelectedBank] = useState('')
+  const [accountNumber, setAccountNumber] = useState('');
+  const [accountName, setAccountName] = useState('')
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+  const selectBank = (e) => {
+     setSelectedBank(e.target.value);
+     console.log(e.target.value);
   };
+
+  const getAccountDetails = ()=>{
+    console.log('here');
+    fetch('https://fitted-portal-api.herokuapp.com/api/v1/bank/resolveAccount', {
+        method: 'POST',
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+         },
+        body: JSON.stringify({
+            bankCode: selectedBank,
+            accountNo: accountName
+        })
+        .then(response=>response.json())
+        .then(data=>setAccountName(data.content.data.account_name))
+    })
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault();
 };
+
+const getAccountNumber = (e) =>{
+    setAccountNumber(e.target.value);
+    console.log(e.target.value);
+}
+
+useEffect(() => {
+  fetchBanks()
+}, [bankList])
+
+const fetchBanks = ()=>{
+    fetch('https://fitted-portal-api.herokuapp.com/api/v1/bank/banks')
+    .then(response=>response.json())
+    .then(data=>setBankList(data.data))
+}
 
   return (
     <>
@@ -67,7 +102,12 @@ function Tailorapplication() {
                     <label className="application-item" htmlFor="name">Bank Name</label>
                 </div>
                 <div>
-                <input type="text" id="name" name="name" placeholder="please select your Bank" value={formData.name} onChange={handleChange} className="bars"/>
+                    <select className="bars" value={selectedBank} onChange={selectBank}>
+                    <option>Please select your bank</option>
+                    {bankList.map(bank => (
+                        <option key={bank.id} value={bank.code}>{bank.name}</option>
+                    ))}
+                    </select>
                 </div>
             </div>
             <div>
@@ -75,7 +115,7 @@ function Tailorapplication() {
                     <label className="application-item" htmlFor="email">Account Number:</label>
                 </div>
                 <div>
-                <input className="bars" type="value" id="value" name="value" placeholder="please input your account number" value={formData.number} onChange={handleChange}/>
+                <input className="bars" type="value" id="value" name="value" placeholder="please input your account number" value={accountNumber} onChange={getAccountNumber}/>
                 </div>
             </div>
 
@@ -84,12 +124,14 @@ function Tailorapplication() {
                     <label className="application-item"htmlFor="accountname">Account Name</label>
                 </div>
                 <div>
-                <input className="bars" type="value" id="accountname" name="accountname" placeholder={user} value={formData.name} onChange={handleChange}/>
+                <input className="bars" type="value" id="accountname" name="accountname" placeholder={accountName}  value={accountName}/>
                 </div>
             </div>
         </div>
-
-            <button type="submit">Submit Application</button>
+        <Link to="/vetapplication">
+        <button className="btn" type="submit" onClick={getAccountDetails}>Submit Application</button>
+        </Link>
+            
         </form>
         </div>
             </div>
