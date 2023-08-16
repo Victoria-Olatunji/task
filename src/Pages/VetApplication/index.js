@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import vetted from '../../Components/images/vetted.png';
 
-function Vetapplication() {
+function VetApplication() {
   return (
   <>
     <div className='cardii'>
@@ -23,4 +23,4 @@ function Vetapplication() {
   )
 }
 
-export default  Vetapplication
+export default  VetApplication
