@@ -466,9 +466,6 @@ tr.thirdtransrow{
   }
 }
 
-/* Add this CSS to your existing stylesheet or a new one */
-
-/* Media query for smaller screens */
 @media (max-width: 768px) {
   .card{
     margin-top: -6rem;
@@ -502,9 +499,7 @@ tr.thirdtransrow{
     margin-left: 1rem;
     width: 55%;
   }
-  
 
- 
 }
 
 
