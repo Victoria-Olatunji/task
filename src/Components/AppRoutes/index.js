@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Myprofile from "../../Pages/Myprofile";
 import Tailorapplication from "../../Pages/Tailorapplication";
-import VetApplication from "../../Pages/Vetapplication";
+import VetApplication from "../../Pages/VetApplication";
 
 
 function AppRoutes() {
